@@ -1,6 +1,12 @@
 $(function(){
 
   var hamburger = $("#hamburger");
+  var fruits =   $(".container-fruits-items").find(".item");
+  var base = $(".container-base-items").find(".item");
+  var countFruit = $(".container-fruits-items").find(".item").length;
+  var countBase = $(".container-base-items").find(".item").length;
+  var mixBtn = $("#mix");
+
 
   function checkSize(){
    var maxWidth = window.matchMedia("(max-width: 600px)");
@@ -70,12 +76,19 @@ function moveIngredients(item){
     }, 800, function(){
       var newSite = item.detach();
       containerMix.prepend(newSite);
-      newSite.css("margin-left", "0.1rem");
-      newSite.css("margin-right", "0.1rem");
+      newSite.css("margin-left", "0.5rem");
+      newSite.css("margin-right", "0.5rem");
       clearItem(newSite);
 
     });
   }else if(item.hasClass("fruit")){
+    if($(".container-fruits-items").find(".item").length === 7){
+      containerFruitsLeft += parseInt(itemWidth);
+      console.log("jestem 7")
+    }else if($(".container-fruits-items").find(".item").length === 8){
+        containerFruitsLeft += 2*(parseInt(itemWidth));
+        console.log("jestm 8");
+    }
     item.animate({
       left: containerFruitsLeft + "px",
       top: containerFruitsTop + 2*(parseInt(itemWidth)) + "px",
@@ -98,22 +111,40 @@ function moveIngredients(item){
 };
 
 
-var fruits =   $(".container-fruits-items").find(".item");
 
 fruits.on("click", function(){
-  if(($(".container-fruits-items").find(".item").length > 6) || ($(this).parent().hasClass("container-glass-items"))){
-      moveIngredients($(this));
+  if(countFruit > 6 && ($(this).parent().hasClass("container-fruits-items"))){
+    countFruit --;
+    console.log(countFruit);
+    moveIngredients($(this));
+  }else if($(this).parent().hasClass("container-glass-items")){
+    countFruit ++;
+    console.log(countFruit);
+    moveIngredients($(this))
   }
+
+
 });
 
-var base = $(".container-base-items").find(".item");
+
 
 base.on("click", function(){
-  if(($(".container-base-items").find(".item").length > 2) || ($(this).parent().hasClass("container-glass-items"))){
-      moveIngredients($(this));
+  if(countBase> 2){
+    countBase --;
+    moveIngredients($(this));
+  }else if($(this).parent().hasClass("container-glass-items")){
+    countBase ++;
+    moveIngredients($(this));
   }
 });
-//
-//  $(".container-fruits-items").find(".item").draggable();
-//
+
+mixBtn.on("click",function(){
+  console.log("d");
+  $(".gc1").addClass("fill4");
+  $(".gc2").addClass("fill3");
+  $(".gc3").addClass("fill2");
+  $(".gc4").addClass("fill1");
+  $(".glass").delay(3200).addClass("shake");
+
+});
 });

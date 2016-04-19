@@ -534,3 +534,10 @@ nav li {
 
 
 }
+/*// if($(".container-fruits-items").find(".item").length === 7){
+//   containerFruitsLeft += parseInt(itemWidth);
+//   console.log("jestem 7")
+// }else if($(".container-fruits-items").find(".item").length === 8){
+//     containerFruitsLeft += 2*(parseInt(itemWidth));
+//     console.log("jestm 8");
+// }*/
