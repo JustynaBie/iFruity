@@ -139,12 +139,16 @@ base.on("click", function(){
 });
 
 mixBtn.on("click",function(){
-  console.log("d");
-  $(".gc1").addClass("fill4");
-  $(".gc2").addClass("fill3");
-  $(".gc3").addClass("fill2");
-  $(".gc4").addClass("fill1");
-  $(".glass").delay(3200).addClass("shake");
+  var ingrediente = [];
+  // $(".container-glass-items").find(".items").data();
+  console.log($(".container-glass-items").find(".item"));
+
+
+  // $(".gc1").addClass("fill4");
+  // $(".gc2").addClass("fill3");
+  // $(".gc3").addClass("fill2");
+  // $(".gc4").addClass("fill1");
+  // $(".glass").delay(3200).addClass("shake");
 
 });
 });
