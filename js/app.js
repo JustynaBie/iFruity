@@ -6,6 +6,10 @@ $(function(){
   var countFruit = $(".container-fruits-items").find(".item").length;
   var countBase = $(".container-base-items").find(".item").length;
   var mixBtn = $("#mix");
+  var dataFruits = [];
+  var dataBases = [];
+
+
 
 
   function checkSize(){
@@ -138,10 +142,54 @@ base.on("click", function(){
   }
 });
 
+function takeIngredients (ingredients){
+
+  $(".container-glass-items").find(".item").each(function(){
+    if($(this).hasClass("fruit")){
+        var itemIngredient = $(this).data("fruit");
+    }else {
+        var itemIngredient = $(this).data("base");
+    }
+    ingredients.push(itemIngredient);
+  });
+  return ingredients.reverse();
+};
+
+
+function getIngredientsData(array, id, name){
+  var urlServer = "http://localhost:3000/";
+  $.ajax({
+    url: urlServer + id + "?name=" + name,
+    type: "GET",
+    dataType: "json"
+  }).done(function(response){
+    array.push(response);
+    console.log(array);
+  }).fail(function(error){
+     console.log("error");
+  })
+
+  };
+
 mixBtn.on("click",function(){
-  var ingrediente = [];
-  // $(".container-glass-items").find(".items").data();
-  console.log($(".container-glass-items").find(".item"));
+  var ingredients = [];
+  var coctail = [];
+  takeIngredients(ingredients);
+
+
+  for(var i=0; i<ingredients.length; i++){
+
+    if(this.dataset.fruit = true){
+      console.log(ingredients[i] + "fruit");
+      getIngredientsData(dataFruits, "fruits", ingredients[i]);
+    }else{
+      console.log(ingredients[i] + "bases");
+      getIngredientsData(dataBases, "bases", ingredients[i]);
+    }
+
+  }
+
+
 
 
   // $(".gc1").addClass("fill4");
