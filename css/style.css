@@ -343,6 +343,10 @@ nav li {
   justify-content: space-between;
 }
 
+.container-fruits {
+  position: relative;
+}
+
 .container-fruits h4 {
   margin: 2rem 0 1.6rem 0;
 }
@@ -427,10 +431,6 @@ nav li {
 }
 
 .container-glass-photo {
-  border: 0.1rem solid blue;
-}
-
-.container-glass-photo {
   width: 100%;
   margin-right: 0;
   margin-top: 3rem;
@@ -475,6 +475,16 @@ nav li {
   border-bottom: 1.5rem solid rgba(255, 255, 255, 0.5);
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
+  position: relative;
+}
+
+.straw {
+  position: absolute;
+  height: 27rem;
+  width: 1.5rem;
+  top: -9rem;
+  transform: rotate(15deg);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .glass-content-big {
@@ -606,6 +616,18 @@ nav li {
 
 .fruit-around {
   animation: around 800ms infinite linear normal;
+}
+
+.information-mix {
+  width: 30rem;
+  top: 0rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  z-index: 11;
+}
+
+.information-mix-move {
+  animation: moveInformationMix 800ms 1 linear normal;
 }
 
 @media (min-width: 600px) {
