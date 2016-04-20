@@ -480,7 +480,6 @@ nav li {
 .glass-content-big {
   height: 16rem;
   margin-top: 2.5rem;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -502,24 +501,20 @@ nav li {
 }
 
 .fill1 {
-  background-color: green;
   animation: fill 800ms 1 ease normal forwards;
 }
 
 .fill2 {
-  background-color: pink;
   animation: fill 800ms 1 ease normal forwards;
   animation-delay: 800ms;
 }
 
 .fill3 {
-  background-color: orange;
   animation: fill 800ms 1 ease normal forwards;
   animation-delay: 1600ms;
 }
 
 .fill4 {
-  background-color: yellow;
   animation: fill 800ms 1 ease normal forwards;
   animation-delay: 2400ms;
 }
