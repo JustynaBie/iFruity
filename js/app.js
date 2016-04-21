@@ -8,8 +8,9 @@ $(function(){
   var mixBtn = $("#mix");
   //variable to store objects ingredients for mix fruity
   var dataIngredients = [];
-
-
+  var closeMixBtn = $("#close-info-mix ");
+  //variable to bloc onclick in fruits, bases and mix btns
+  var blockBtns = false;
   //variables to check start position of information-mix and the strawv
   var informationMix = {
      infromationMixPosition: 0,
@@ -23,6 +24,8 @@ $(function(){
     documentWidth: 0,
     strawLeftPosition: 0
   };
+  //variable to write final color of fruity
+  var finalColor = "";
 
 
 
@@ -46,7 +49,9 @@ $(function(){
   // function to change position from which the straw and information-mix mix at
   // the bggining and second function will be moved depending on resize
    $(window).resize(function(){
-      setMixInformationPosition();
+     if(blockBtns === false){
+         setMixInformationPosition();
+     }
    });
 
 
@@ -155,31 +160,29 @@ function moveIngredients(item){
 
 };
 
-
-
 fruits.on("click", function(){
-  if(countFruit > 6 && ($(this).parent().hasClass("container-fruits-items"))){
-    countFruit --;
-    console.log(countFruit);
-    moveIngredients($(this));
-  }else if($(this).parent().hasClass("container-glass-items")){
-    countFruit ++;
-    console.log(countFruit);
-    moveIngredients($(this))
+  if(blockBtns === false){
+    if(countFruit > 6 && ($(this).parent().hasClass("container-fruits-items"))){
+      countFruit --;
+      console.log(countFruit);
+      moveIngredients($(this));
+    }else if($(this).parent().hasClass("container-glass-items")){
+      countFruit ++;
+      console.log(countFruit);
+      moveIngredients($(this))
+    }
   }
-
-
 });
 
-
-
 base.on("click", function(){
-  if(countBase> 2){
-    countBase --;
-    moveIngredients($(this));
-  }else if($(this).parent().hasClass("container-glass-items")){
-    countBase ++;
-    moveIngredients($(this));
+  if(blockBtns === false){
+    if(countBase> 2){
+      countBase --;
+      moveIngredients($(this));
+    }else if($(this).parent().hasClass("container-glass-items")){
+      countBase ++;
+      moveIngredients($(this));
+    }
   }
 });
 
@@ -217,10 +220,14 @@ function getIngredientsData(array, id, name, end){
   };
 
 mixBtn.on("click",function(){
+  if(blockBtns === false){
+    mixBtnClicked();
+  }
+});
 
+function mixBtnClicked(){
   if(($(".container-glass-items").find(".item").length > 2) && ($(".container-glass-items").find(".base").length === 1)){
-    base.off("click");
-    fruits.off("click");
+    blockBtns = true;
     var ingredients = [];
 
     takeIngredients(ingredients);
@@ -240,8 +247,10 @@ mixBtn.on("click",function(){
       }
     }
   }
+};
 
-});
+
+
 function giveInfromation(){
   var line1 = "";
   var line2 = "";
@@ -272,23 +281,92 @@ function mixIngredients(){
     (fillGlass[j]).style.backgroundColor = color;
     j--;
   }
-      $(".glass").delay(3200).addClass("shake");
-      setTimeout(function( ) {
-      $(".straw").css("left", strawLeft);
-      // $(".infromation-mix").css("left", informationMixLeft);
-      // $(".straw").addClass("straw-visible");
-      $(".information-mix").css("display", "block");
-      $(".information-mix").animate({
-        left: 0
-      },800);
-      $(".straw").animate({
-        left: 62
-      }, 800);
-      giveInfromation();
-      $(window).off("resize");
+    choosefinalColor();
+    $(".glass").delay(3200).addClass("shake");
+
+    $(".glass-content-up").addClass("fill-big").css("background-color", finalColor);
+    // $(".glass-content-big").delay(3200).css("background-color", "red");
+    // fillGlass.delay(3200).addClass("fill5");
+    setTimeout(function( ) {
+    $(".gc1").removeClass("fill1 fill2 fill3 fill4");
+    $(".gc2").removeClass("fill1 fill2 fill3 fill4");
+    $(".gc3").removeClass("fill1 fill2 fill3 fill4");
+    $(".gc4").removeClass("fill1 fill2 fill3 fill4");
+    $(".straw").css("left", strawLeft);
+    // $(".infromation-mix").css("left", informationMixLeft);
+    // $(".straw").addClass("straw-visible");
+    $(".information-mix").css("display", "block");
+    $(".information-mix").animate({
+      left: 0
+    },800);
+    $(".straw").animate({
+      left: 62
+    }, 800);
+    giveInfromation();
 
   }, 7200)
-
-
 };
+
+function choosefinalColor(){
+  var white = -1;
+  var orange = -1;
+  var red = -1;
+  var blue = -1;
+  var yellow = -1;
+  var colorCode = [];
+  for(var i =0; i<dataIngredients.length; i++){
+    colorCode.push(dataIngredients[i][0].colorGroup)
+  }
+  white = colorCode.indexOf("white");
+  orange = colorCode.indexOf("orange");
+  red = colorCode.indexOf("red");
+  blue = colorCode.indexOf("blue");
+  yellow = colorCode.indexOf("yellow");
+  if(white >= 0){
+    if(red >=0 && yellow>=0 && blue <0){
+      finalColor = "#efa17f";
+    }else if(red>=0 && blue >= 0){
+      finalColor = "#ab5d72";
+    }else if(red>=0 && yellow<0 && blue<0){
+      finalColor = "#ec929b";
+    }else if(blue>=0) {
+      finalColor = "#7d69b1";
+    }else{
+      finalColor = "#f8e994";
+    }
+  }
+  if(orange>=0){
+    if(red>= 0 && blue>=0){
+      finalColor = "#b2336e";
+    }else if(red>=0 && blue<0){
+      finalColor = "#f27911";
+    }else if(blue>=0){
+      finalColor = "#8c976e";
+    }else{
+      finalColor = "#f0cc34";
+    }
+  }
+};
+
+closeMixBtn.on("click", function(){
+  blockBtns = false;
+  countBase = 3;
+  countFruit = 9;
+  setMixInformationPosition();
+  $(".information-mix").css("display", "none");
+  $(".glass").removeClass("shake");
+  $(".glass-content-up").removeClass("fill-big").css("background-color", "");
+  $(".glass-content-big").find("glass-content").each(function(){
+    console.log("usuwam background color");
+    $(this).css("background-color","");
+    $(this).css("height", "0");
+  });
+
+  dataIngredients = [];
+  // $('[class^="fill"]').removeClass();
+  $(".container-glass-items").find(".item").each(function(){
+    moveIngredients($(this));
+  })
+});
+
 });
