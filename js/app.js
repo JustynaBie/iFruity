@@ -27,8 +27,54 @@ $(function(){
   //variable to write final color of fruity
   var finalColor = "";
 
+//addListener to change display where it is mobile
+  //
+  //
+    function test_match(){
+      var mW = window.matchMedia("(max-width: 600px)");
+      mW.addListener(WidthChange);
+      WidthChange(mW);
 
+      function WidthChange(mW){
+        if(mW.matches){
+          var containerMix = $(".container-glass-items").detach();
+          $(".container-fruits").find(".container-move-btn").before(containerMix);
+          // $("#hamburger").css("display", "block");
+          //    $("nav").css("display", "none");
+          //    console.log("yes");
+        }else{
+          var containerMix = $(".container-glass-items").detach();
+          $(".container-glass").append(containerMix);
+        //   $("#hamburger").css("display", "none");
+        //  $("nav").css("display", "block");
+        //  console.log("no");
+        }
+      }
+    }
+  test_match();
 
+  function matchHeightWidth(){
+    var maxW = window.matchMedia("(max-width: 600px and min-height: 640px)");
+    // var minH = window.matchMedia("(min-height: 640px)");
+    // minH.addListener(WidthHeightChange);
+    maxW.addListener(WidthHeightChange);
+
+    WidthHeightChange(maxW);
+
+    function WidthHeightChange(maxW){
+      if(maxW.matches){
+        console.log("in");
+      // var wHeight = $(window).height();
+      // console.log(wHeight);
+      }else{
+      console.log("out")
+      }
+    }
+  }
+matchHeightWidth();
+
+  // function to change position from which the straw and information-mix mix at
+  // the bggining and second function will be moved depending on resize
   function setMixInformationPosition(){
     informationMix.infromationMixPosition = $(".container-fruits").offset().left;
     informationMix.infromationMixWidth = $(".information-mix").width();
@@ -49,6 +95,7 @@ $(function(){
   // function to change position from which the straw and information-mix mix at
   // the bggining and second function will be moved depending on resize
    $(window).resize(function(){
+
      if(blockBtns === false){
          setMixInformationPosition();
      }
@@ -126,8 +173,8 @@ function moveIngredients(item){
     }, 800, function(){
       var newSite = item.detach();
       containerMix.prepend(newSite);
-      newSite.css("margin-left", "0.5rem");
-      newSite.css("margin-right", "0.5rem");
+      // newSite.css("margin-left", "0.5rem");
+      // newSite.css("margin-right", "0.5rem");
       clearItem(newSite);
 
     });
@@ -292,6 +339,7 @@ function mixIngredients(){
     $(".gc2").removeClass("fill1 fill2 fill3 fill4");
     $(".gc3").removeClass("fill1 fill2 fill3 fill4");
     $(".gc4").removeClass("fill1 fill2 fill3 fill4");
+    $(".straw").css("display","block");
     $(".straw").css("left", strawLeft);
     // $(".infromation-mix").css("left", informationMixLeft);
     // $(".straw").addClass("straw-visible");
@@ -354,6 +402,7 @@ closeMixBtn.on("click", function(){
   countFruit = 9;
   setMixInformationPosition();
   $(".information-mix").css("display", "none");
+  $(".straw").css("display","block");
   $(".glass").removeClass("shake");
   $(".glass-content-up").removeClass("fill-big").css("background-color", "");
   $(".glass-content-big").find("glass-content").each(function(){

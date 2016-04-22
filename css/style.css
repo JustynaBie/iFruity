@@ -232,7 +232,7 @@ input[type=button] {
 
 body {
   font-size: 10px;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #333;
 }
 
@@ -263,11 +263,14 @@ body h4 {
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   width: 100%;
   height: auto;
-  margin-bottom: 5rem;
-  background-color: #DE4964;
+  background-color: #e93864;
   color: #E7E7E7;
 }
 
@@ -276,15 +279,15 @@ header .main-width {
   justify-content: space-between;
 }
 
-header .main-width .logo h2 {
-  line-height: 3.5rem;
+header .main-width .logo h1 {
+  line-height: 6rem;
   font-weight: bold;
 }
 
 nav li {
   padding-left: 1rem;
-  line-height: 3.5rem;
-  font-size: 1.3rem;
+  line-height: 6rem;
+  font-size: 1.2rem;
   display: inline-block;
 }
 
@@ -307,6 +310,7 @@ nav li {
   width: 3rem;
   height: 3.2rem;
   left: 0;
+  top: 1.5rem;
   border: none;
   background: none;
   cursor: pointer;
@@ -322,8 +326,8 @@ nav li {
   top: 1rem;
   width: 1em;
   height: 0.15em;
-  background: black;
-  box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
+  background: #E7E7E7;
+  box-shadow: 0 0.25em 0 0 #E7E7E7, 0 0.5em 0 0 #E7E7E7;
 }
 
 .show-menu + #hamburger:before {
@@ -332,15 +336,27 @@ nav li {
   box-shadow: none;
   border: none;
   top: 0.5rem;
+  color: #E7E7E7;
+}
+
+.main {
+  overflow: hidden;
 }
 
 .mix {
   height: 100vh;
+  width: 100%;
+  padding-top: 6rem;
 }
 
 .mix .main-width {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.mix .main-width .container-fruits {
+  width: 50%;
 }
 
 .container-fruits {
@@ -352,11 +368,14 @@ nav li {
 }
 
 .container-fruits p {
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #741c32;
 }
 
 .container-fruits-items {
   width: 20rem;
+  height: 20rem;
   position: relative;
 }
 
@@ -424,16 +443,30 @@ nav li {
   background-image: url("../images/yoghurt.jpg");
 }
 
+.choosen {
+  display: none;
+}
+
+#move-glass-btn {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: #E7E7E7;
+  font-size: 1.4rem;
+  background-color: #e93864;
+  text-align: center;
+}
+
 .container-glass {
   width: 100%;
-  height: 750px;
   text-align: right;
 }
 
 .container-glass-photo {
   width: 100%;
   margin-right: 0;
-  margin-top: 3rem;
   margin-bottom: 3rem;
   background-image: url("../images/kichen.jpg");
   background-size: cover;
@@ -448,28 +481,13 @@ nav li {
   height: 6rem;
   margin: 0 auto;
   text-align: left;
-  border: 0.1rem solid black;
-  display: inline-block;
-}
-
-#mix {
-  width: 8rem;
-  height: 4rem;
-  margin-top: 1rem;
-  font-size: 1rem;
-  text-align: center;
-  line-height: 4rem;
-  display: inline-block;
-  border: 1px solid black;
-  vertical-align: top;
 }
 
 .glass {
   width: 10rem;
   height: 20rem;
   margin: 0 auto;
-  margin-bottom: 1rem;
-  margin-top: 10rem;
+  margin-top: 8rem;
   background-color: rgba(255, 255, 255, 0.3);
   border: 0.5rem solid rgba(255, 255, 255, 0.5);
   border-bottom: 1.5rem solid rgba(255, 255, 255, 0.5);
@@ -481,11 +499,12 @@ nav li {
 .straw {
   position: absolute;
   z-index: 15;
-  height: 27rem;
+  height: 25rem;
   width: 1.5rem;
   top: -9rem;
   transform: rotate(15deg);
   background-color: rgba(255, 255, 255, 0.5);
+  display: none;
 }
 
 .glass-content-big {
@@ -659,6 +678,30 @@ nav li {
   animation: around 800ms infinite linear normal;
 }
 
+.mixer {
+  width: 18rem;
+  height: 8rem;
+  margin: 0 auto;
+  padding-top: 2rem;
+  background-color: #77032e;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+}
+
+#mix {
+  width: 8rem;
+  height: 4rem;
+  margin: 0 auto;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5%;
+  text-align: center;
+  background-color: white;
+  line-height: 2rem;
+  display: block;
+  vertical-align: top;
+}
+
 .information-mix {
   width: 30rem;
   top: 0rem;
@@ -694,7 +737,53 @@ nav li {
   header .main-width {
     justify-content: center;
   }
+  .mix {
+    padding-top: 0;
+  }
   .mix .main-width {
+    display: flex;
     flex-direction: column;
+  }
+  .mix .main-width .container-fruits {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .mix .main-width .container-fruits .container-fruits-items {
+    width: 18rem;
+    height: 16rem;
+    margin: 0 auto;
+  }
+  .mix .main-width .container-fruits p {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .mix .main-width .container-fruits .container-base-items {
+    width: 18rem;
+    height: auto;
+    margin: 0 auto;
+  }
+  .mix .main-width .container-fruits .choosen {
+    display: block;
+  }
+  .mix .main-width .container-fruits #move-glass-btn {
+    display: block;
+  }
+  .mix .main-width .item {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: 0;
+  }
+  .mix .container-glass-items {
+    height: 5.4rem;
+  }
+  .mix .container-glass {
+    height: 100vh;
+  }
+  .mix .container-glass .container-glass-photo {
+    margin-bottom: 0;
   }
 }
