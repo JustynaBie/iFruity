@@ -5,10 +5,10 @@ $(function(){
   var base = $(".container-base-items").find(".item");
   var countFruit = $(".container-fruits-items").find(".item").length;
   var countBase = $(".container-base-items").find(".item").length;
-  var mixBtn = $("#mix");
+  var mixBtn = $(".mix-btn");
   //variable to store objects ingredients for mix fruity
   var dataIngredients = [];
-  var closeMixBtn = $("#close-info-mix ");
+  var closeMixBtn = $(".close-info-mix ");
   //variable to bloc onclick in fruits, bases and mix btns
   var blockBtns = false;
   //variables to check start position of information-mix and the strawv
@@ -26,48 +26,42 @@ $(function(){
   };
   //variable to write final color of fruity
   var finalColor = "";
+  //variable to check if we are in mobile or screen display
+  var mobile = false;
 
-//addListener to change display where it is mobile
-  //
-  //
-    function test_match(){
-      var mW = window.matchMedia("(max-width: 600px)");
-      mW.addListener(WidthChange);
-      WidthChange(mW);
 
-      function WidthChange(mW){
-        if(mW.matches){
-          var containerMix = $(".container-glass-items").detach();
-          $(".container-fruits").find(".container-move-btn").before(containerMix);
-          // $("#hamburger").css("display", "block");
-          //    $("nav").css("display", "none");
-          //    console.log("yes");
-        }else{
-          var containerMix = $(".container-glass-items").detach();
-          $(".container-glass").append(containerMix);
-        //   $("#hamburger").css("display", "none");
-        //  $("nav").css("display", "block");
-        //  console.log("no");
-        }
-      }
-    }
-  test_match();
 
   function matchHeightWidth(){
-    var maxW = window.matchMedia("(max-width: 600px and min-height: 640px)");
-    // var minH = window.matchMedia("(min-height: 640px)");
-    // minH.addListener(WidthHeightChange);
-    maxW.addListener(WidthHeightChange);
+    // var maxW = window.matchMedia("(max-width: 600px") &&  window.matchMedia("(min-height: 640px)").matches;
 
-    WidthHeightChange(maxW);
+    var isOk = false;
+    var increment = 0;
+    var mqls = [ // list of window.matchMedia() queries
+      window.matchMedia("(max-width: 600px)"),
+      window.matchMedia("(min-height: 640px)")
+    ];
+
+    for (var i=0; i< mqls.length; i++){ // loop through queries
+      WidthHeightChange(mqls[i]) // call handler function explicitly at run time
+        mqls[i].addListener(WidthHeightChange) // call handler function whenever the media query is triggered
+    }
 
     function WidthHeightChange(maxW){
       if(maxW.matches){
+        isOk = true;
+        increment++;
         console.log("in");
       // var wHeight = $(window).height();
       // console.log(wHeight);
-      }else{
-      console.log("out")
+      } else{
+        isOk = false;
+        increment++;
+        console.log("out")
+      }
+
+      //Tutaj sprawdzam czy oba pasują i w tym ifie piszesz style jesli pasują oba :)
+      if( increment==2 && isOk === true) {
+        console.log('pasują oba')
       }
     }
   }
@@ -85,7 +79,6 @@ matchHeightWidth();
 
     strawLeft.strawLeftPosition = strawLeft.documentWidth - parseInt(strawLeft.glassPosition) + strawLeft.glassWidth;
     $(".straw").css("left", strawLeft.strawLeftPosition);
-    console.log($(".straw"));
     informationMix.infromationMixLeft  = informationMix.infromationMixPosition + parseInt(informationMix.infromationMixWidth);
     $(".container-fruits").find('.information-mix').css("left", -informationMix.infromationMixLeft);
   };
@@ -101,23 +94,48 @@ matchHeightWidth();
      }
    });
 
+  //  addListener to change display where it is mobile
+       function test_match(){
+         var mW = window.matchMedia("(max-width: 600px)");
+         mW.addListener(WidthChange);
+         WidthChange(mW);
 
+         function WidthChange(mW){
+           if(mW.matches){
+             var containerMix = $(".container-glass-items").detach();
+             $(".container-fruits").find(".container-move-btn").before(containerMix);
+             mobile = true;
+
+           }else{
+             var containerMix = $(".container-glass-items").detach();
+             $(".container-glass").append(containerMix);
+             mobile = false;
+           }
+         }
+       }
+     test_match();
 
   function checkSize(){
    var maxWidth = window.matchMedia("(max-width: 600px)");
    maxWidth.addListener(WidthChange);
    WidthChange(maxWidth);
 
+
    function WidthChange(maxWidth){
+     var menu = $("nav");
      if(maxWidth.matches){
        $("#hamburger").css("display", "block");
-          $("nav").css("display", "none");
+          menu .css("display", "none");
      }else{
        $("#hamburger").css("display", "none");
-      $("nav").css("display", "block");
+       menu .css("display", "block");
+      if(menu .hasClass("show-menu")){
+         menu .removeClass("show-menu");
+         $("nav").find("li").removeClass("show-li");
+      }
      }
    }
- }
+};
 checkSize();
 
   hamburger.on("click", function(){
@@ -246,6 +264,8 @@ function takeIngredients (ingredients){
   return ingredients.reverse();
 };
 
+// http://stackoverflow.com/questions/13912775/jquery-deferred-getting-result-of-chained-ajax-calls
+//http://stackoverflow.com/questions/5627284/pass-in-an-array-of-deferreds-to-when
 
 function getIngredientsData(array, id, name, end){
   var urlServer = "http://localhost:3000/";
@@ -274,6 +294,7 @@ mixBtn.on("click",function(){
 
 function mixBtnClicked(){
   if(($(".container-glass-items").find(".item").length > 2) && ($(".container-glass-items").find(".base").length === 1)){
+    mixBtn.addClass("mix-press");
     blockBtns = true;
     var ingredients = [];
 
@@ -297,7 +318,6 @@ function mixBtnClicked(){
 };
 
 
-
 function giveInfromation(){
   var line1 = "";
   var line2 = "";
@@ -305,9 +325,14 @@ function giveInfromation(){
     line1 = line1 + dataIngredients[i][0].vitamin + ", ";
     line2 = line2 + dataIngredients[i][0].mineral + ", ";
   }
-  $("#vitamin").text(line1);
-  $("#mineral").text(line2);
+  $(".vitamin").text(line1);
+  $(".mineral").text(line2);
+  // if(mobile === true){
+  //     $("body, html, document").scrollTop( $("#glass-mobile").offset().top );
+  //
+  // }
 };
+
 function mixIngredients(){
   var fillGlass = $(".glass-content");
   var classArray = ["fill1", "fill2", "fill3", "fill4"]
@@ -341,15 +366,27 @@ function mixIngredients(){
     $(".gc4").removeClass("fill1 fill2 fill3 fill4");
     $(".straw").css("display","block");
     $(".straw").css("left", strawLeft);
+    $(".glass-content-wave").addClass("wave-moving");
+    $(".glass-content-wave").css("background-color", finalColor);
     // $(".infromation-mix").css("left", informationMixLeft);
     // $(".straw").addClass("straw-visible");
-    $(".information-mix").css("display", "block");
-    $(".information-mix").animate({
-      left: 0
-    },800);
-    $(".straw").animate({
-      left: 62
-    }, 800);
+
+    if(mobile === true){
+      $(".information-mix-mobile").css("display", "block");
+      $(".straw").animate({
+        left: 62
+      }, 800);
+
+    }else{
+      $(".information-mix").css("display", "block");
+      $(".information-mix").animate({
+        left: 0
+      },800);
+      $(".straw").animate({
+        left: 62
+      }, 800);
+    }
+
     giveInfromation();
 
   }, 7200)
@@ -400,16 +437,19 @@ closeMixBtn.on("click", function(){
   blockBtns = false;
   countBase = 3;
   countFruit = 9;
+  $(".mix-btn").removeClass("mix-press");
   setMixInformationPosition();
   $(".information-mix").css("display", "none");
+  $(".information-mix-mobile").css("display", "none");
   $(".straw").css("display","block");
   $(".glass").removeClass("shake");
   $(".glass-content-up").removeClass("fill-big").css("background-color", "");
   $(".glass-content-big").find("glass-content").each(function(){
-    console.log("usuwam background color");
     $(this).css("background-color","");
     $(this).css("height", "0");
   });
+  $(".glass-content-wave").removeClass("wave-moving");
+  $(".glass-content-wave").css("background-color","");
 
   dataIngredients = [];
   // $('[class^="fill"]').removeClass();

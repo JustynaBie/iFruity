@@ -290,7 +290,7 @@ header .main-width .logo h1 {
 nav li {
   padding-left: 1rem;
   line-height: 6rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: inline-block;
 }
 
@@ -300,8 +300,9 @@ nav li {
   display: block;
   padding: 1.5rem 1.5rem 1.5rem 0;
   background-color: white;
-  z-index: 2;
+  z-index: 10;
   position: absolute;
+  color: #741c32;
 }
 
 .show-li {
@@ -346,7 +347,9 @@ nav li {
   width: 6em;
   height: 5em;
   background-color: #ff4355;
-  box-shadow: inset 0.2em -0.2em  #cc1022;
+  -moz-box-shadow: inset 0.2em -0.2em #cc1022;
+  -webkit-box-shadow: inset 0.2em -0.2em #cc1022;
+  box-shadow: inset 0.2em -0.2em #cc1022;
   border-radius: 2em 2em 3em 3em;
   position: absolute;
   top: 1em;
@@ -362,6 +365,8 @@ nav li {
   background-color: inherit;
   border-radius: 3em 3em 0 0;
   position: absolute;
+  -moz-box-shadow: -1.5em 0 0   #ff4355, inset .2em 0.2em  #ff4355;
+  -webkit-box-shadow: -1.5em 0 0   #ff4355, inset .2em 0.2em  #ff4355;
   box-shadow: -1.5em 0 0   #ff4355, inset .2em 0.2em  #ff4355;
 }
 
@@ -381,7 +386,9 @@ nav li {
   height: 5.6em;
   border-radius: 50%;
   background-color: #ffb526;
-  box-shadow: inset 0.2em -.2em  #cc8a0c;
+  -moz-box-shadow: inset 0.2em -0.2em #cc8a0c;
+  -webkit-box-shadow: inset 0.2em -0.2em #cc8a0c;
+  box-shadow: inset 0.2em -0.2em #cc8a0c;
   position: absolute;
   top: 0.9em;
   left: 0.3em;
@@ -404,6 +411,8 @@ nav li {
   width: 6em;
   height: 6em;
   background-color: transparent;
+  -moz-box-shadow: -1.1em 1.1em 0 0 #fcd110;
+  -webkit-box-shadow: -1.1em 1.1em 0 0 #fcd110;
   box-shadow: -1.1em 1.1em 0 0 #fcd110;
   border-radius: 50%;
   position: absolute;
@@ -439,6 +448,8 @@ nav li {
   width: 5.5em;
   height: 5.8em;
   background-color: transparent;
+  -moz-box-shadow: -0.4em 0.4em 0 0 #ffe23c;
+  -webkit-box-shadow: -0.4em 0.4em 0 0 #ffe23c;
   box-shadow: -0.4em 0.4em 0 0 #ffe23c;
   border-radius: 50%;
   position: absolute;
@@ -453,7 +464,9 @@ nav li {
   margin: 0.8em;
   background-color: #ffe135;
   border-radius: 50% 15%;
-  box-shadow: inset 0.2em 0.2em  #ccb42a;
+  -moz-box-shadow: inset 0.2em 0.2em #ccb42a;
+  -webkit-box-shadow: inset 0.2em 0.2em #ccb42a;
+  box-shadow: inset 0.2em 0.2em #ccb42a;
   transform: rotate(225deg);
   position: absolute;
 }
@@ -465,7 +478,9 @@ nav li {
   background-color: #d7c322;
   border-radius: 50% 15% 50% 50%;
   transform: rotate(-45deg);
-  box-shadow: inset .15em .25em #c3b11f;
+  -moz-box-shadow: inset 0.15em 0.25em #c3b11f;
+  -webkit-box-shadow: inset 0.15em 0.25em #c3b11f;
+  box-shadow: inset 0.15em 0.25em #c3b11f;
   position: absolute;
   left: 0.6em;
 }
@@ -489,7 +504,9 @@ nav li {
   background-color: #ed2607;
   border-radius: 50% 15% 50% 50%;
   transform: rotate(135deg);
-  box-shadow: inset -.15em -.25em #C62106;
+  -moz-box-shadow: inset -0.15em -0.25em #C62106;
+  -webkit-box-shadow: inset -0.15em -0.25em #C62106;
+  box-shadow: inset -0.15em -0.25em #C62106;
   position: absolute;
   left: 0.6em;
 }
@@ -503,6 +520,8 @@ nav li {
   height: .3em;
   background-color: white;
   border-radius: 50%;
+  -moz-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
+  -webkit-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
   box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
 }
 
@@ -544,7 +563,9 @@ nav li {
   left: 0.4em;
   border-radius: 50%;
   background-color: #89a2ca;
-  box-shadow: inset 0.2em -.2em  #6081B8;
+  -moz-box-shadow: inset 0.2em -0.2em #6081B8;
+  -webkit-box-shadow: inset 0.2em -0.2em #6081B8;
+  box-shadow: inset 0.2em -0.2em #6081B8;
 }
 
 .blueberry:before {
@@ -561,6 +582,8 @@ nav li {
   width: 6em;
   height: 5em;
   background-color: #fca049;
+  -moz-box-shadow: inset 0.2em -0.2em #c9803a;
+  -webkit-box-shadow: inset 0.2em -0.2em #c9803a;
   box-shadow: inset 0.2em -0.2em #c9803a;
   border-radius: 2.5em 2.5em 3em 3em;
   position: absolute;
@@ -585,7 +608,9 @@ nav li {
   width: 3em;
   height: 2.5em;
   background-color: #c20e2b;
-  box-shadow: inset 0.2em -0.2em  #9b0b22;
+  -moz-box-shadow: inset 0.2em -0.2em #9b0b22;
+  -webkit-box-shadow: inset 0.2em -0.2em #9b0b22;
+  box-shadow: inset 0.2em -0.2em #9b0b22;
   border-radius: 2.5em 2.5em 4em 4em;
   position: absolute;
 }
@@ -607,6 +632,8 @@ nav li {
   width: 1em;
   height: 2.8em;
   background-color: transparent;
+  -moz-box-shadow: .2em -.1em 0 0 #539e3d;
+  -webkit-box-shadow: .2em -.1em 0 0 #539e3d;
   box-shadow: .2em -.1em 0 0 #539e3d;
   border-radius: 50%;
   position: absolute;
@@ -620,6 +647,8 @@ nav li {
   width: 1em;
   height: 2.8em;
   background-color: transparent;
+  -moz-box-shadow: .2em -.1em 0 0 #539e3d;
+  -webkit-box-shadow: .2em -.1em 0 0 #539e3d;
   box-shadow: .2em -.1em 0 0 #539e3d;
   border-radius: 50%;
   position: absolute;
@@ -715,7 +744,9 @@ nav li {
 }
 
 .raspberry-ball:nth-child(2n+0) {
-  box-shadow: inset 0.1em -.1em  #a82b42;
+  -moz-box-shadow: inset 0.1em -0.1em #a82b42;
+  -webkit-box-shadow: inset 0.1em -0.1em #a82b42;
+  box-shadow: inset 0.1em -0.1em #a82b42;
 }
 
 .raspberry-ball {
@@ -733,7 +764,9 @@ nav li {
 }
 
 .blackberry-ball:nth-child(2n+0) {
-  box-shadow: inset 0.1em -.1em  #3d2475;
+  -moz-box-shadow: inset 0.1em -0.1em #3d2475;
+  -webkit-box-shadow: inset 0.1em -0.1em #3d2475;
+  box-shadow: inset 0.1em -0.1em #3d2475;
 }
 
 .yoghurt {
@@ -742,7 +775,7 @@ nav li {
   top: 2.2em;
   left: 1em;
   position: absolute;
-  border: 0.1em solid black;
+  border: 0.1em solid #545454;
   background-color: white;
 }
 
@@ -753,7 +786,7 @@ nav li {
   top: -0.5em;
   left: 2.4em;
   position: absolute;
-  border: 0.1em solid black;
+  border: 0.1em solid #545454;
   transform: skewY(-45deg);
   background-color: white;
 }
@@ -764,7 +797,7 @@ nav li {
   top: 0.3em;
   left: 2.6em;
   position: absolute;
-  border: 0.1em solid black;
+  border: 0.1em solid #545454;
   transform: rotate(-45deg);
   background-color: white;
 }
@@ -776,7 +809,7 @@ nav li {
   top: -0.9em;
   left: -1em;
   position: absolute;
-  border-right: 0.1em solid black;
+  border-right: 0.1em solid #545454;
   transform: rotate(90deg);
 }
 
@@ -796,11 +829,8 @@ nav li {
   justify-content: space-between;
 }
 
-.mix .main-width .container-fruits {
-  width: 50%;
-}
-
 .container-fruits {
+  width: 50%;
   position: relative;
 }
 
@@ -816,20 +846,18 @@ nav li {
 
 .container-fruits-items {
   width: 20rem;
-  height: 17rem;
+  height: 19rem;
   margin-bottom: 3rem;
   position: relative;
-  border: 1px solid red;
 }
 
 .item {
   width: 5rem;
   height: 5rem;
-  margin: 0.2rem;
+  margin: 0.5rem 1rem 0.5rem 0;
   font-size: 0.7rem;
   display: inline-block;
   position: relative;
-  border: 1px solid blue;
 }
 
 .item:hover {
@@ -861,7 +889,6 @@ nav li {
 
 .container-glass {
   width: 100%;
-  text-align: right;
 }
 
 .container-glass-photo {
@@ -967,12 +994,30 @@ nav li {
   animation: mixBigGlass 4000ms 3200ms 1  ease normal forwards;
 }
 
+.wave-moving {
+  width: 9rem;
+  height: 1rem;
+  position: absolute;
+  top: -0.4rem;
+  display: block;
+  animation: wave 500ms infinite  alternate;
+}
+
 @keyframes mixBigGlass {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes wave {
+  from {
+    transform: skew(0, -5deg);
+  }
+  to {
+    transform: skew(0, 5deg);
   }
 }
 
@@ -1088,12 +1133,13 @@ nav li {
   border-top-right-radius: 45%;
 }
 
-#mix {
+.mix-btn {
   width: 8rem;
   height: 4rem;
   margin: 0 auto;
   padding: 1rem 2rem 1rem 2rem;
   font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 5%;
   text-align: center;
   background-color: white;
@@ -1102,24 +1148,82 @@ nav li {
   vertical-align: top;
 }
 
+.mix-btn:hover {
+  background-color: #ad6781;
+}
+
+.mix-press {
+  font-size: 1.1rem;
+  background-color: #ad6781;
+}
+
 .information-mix {
-  width: 30rem;
+  width: 25rem;
+  padding-top: 1rem;
+  color: white;
   top: 0rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #e93864;
   position: absolute;
   z-index: 11;
   display: none;
+}
+
+.information-mix h1 {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.information-mix h2 {
+  padding-bottom: 1rem;
+}
+
+.information-mix p {
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .information-mix-move {
   animation: moveInformationMix 800ms 1 linear normal;
 }
 
-#close-info-mix {
+.close-info-mix {
   font-size: 1.6rem;
   position: absolute;
-  top: 0;
-  left: 25.5rem;
+  top: -0.3rem;
+  left: 23.5rem;
+}
+
+.close-info-mix:hover {
+  cursor: pointer;
+}
+
+.information-mix-mobile {
+  width: 100%;
+  color: white;
+  text-align: left;
+  background-color: #e93864;
+  z-index: 11;
+  display: none;
+  position: relative;
+}
+
+.information-mix-mobile h1 {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 1rem;
+}
+
+.information-mix-mobile h2 {
+  font-size: 1.5rem;
+}
+
+.information-mix-mobile p {
+  font-size: 1rem;
+  color: white;
+}
+
+.information-mix-mobile .close-info-mix {
+  font-size: 1.6rem;
 }
 
 @media (min-width: 600px) {
@@ -1135,7 +1239,7 @@ nav li {
 
 @media (max-width: 600px) {
   html {
-    font-size: 14px;
+    font-size: 13px;
   }
   header .main-width {
     justify-content: center;
@@ -1164,6 +1268,7 @@ nav li {
   .mix .main-width .container-fruits .container-base-items {
     height: auto;
     margin: 0 auto;
+    text-align: center;
   }
   .mix .main-width .container-fruits .choosen {
     display: block;
@@ -1180,5 +1285,23 @@ nav li {
   }
   .container-glass-items {
     text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  header {
+    padding: 0 1rem 0 1rem;
+  }
+  .mix {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 950px) {
+  .container-glass {
+    width: 55%;
+  }
+  nav li {
+    font-size: 1rem;
   }
 }
