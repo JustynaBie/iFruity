@@ -7,8 +7,10 @@ $(function(){
   var countBase = $(".container-base-items").find(".item").length;
   var mixBtn = $(".mix-btn");
   //variable to store objects ingredients for mix fruity
-  var dataIngredients = [];
+  var dataIngredients = []; //array for data about ingredients form mix seccion
   var closeMixBtn = $(".close-info-mix ");
+  var dataAboutUs = []; // areay for data about us
+  var aboutUs = false; //variable to send to ajax to recognise the seccion
   //variable to bloc onclick in fruits, bases and mix btns
   var blockBtns = false;
   //variables to check start position of information-mix and the strawv
@@ -171,7 +173,7 @@ function moveIngredients(item){
   /// else if check if the element which is in the mix container are fruits
   //if so it is moved back to the container where fruits where at the beggining
   //the second if check how many fruits in the container to calculate where exactly move the fruit
-  else if(item.hasClass("fruit")){ 
+  else if(item.hasClass("fruit")){
     if($(".container-fruits-items").find(".item").length === 7){
       containerFruitsLeft += parseInt(itemWidth);
     }else if($(".container-fruits-items").find(".item").length === 8){
@@ -250,7 +252,7 @@ function takeIngredients (ingredients){
 // http://stackoverflow.com/questions/13912775/jquery-deferred-getting-result-of-chained-ajax-calls
 //http://stackoverflow.com/questions/5627284/pass-in-an-array-of-deferreds-to-when
 
-function getIngredientsData(array, id, name, end){
+function getIngredientsData(array, id, name, end, aboutUs){
   var urlServer = "http://localhost:3000/";
   $.ajax({
     url: urlServer + id + "?name=" + name,
@@ -259,9 +261,13 @@ function getIngredientsData(array, id, name, end){
   }).done(function(response){
     array.push(response);
     console.log(array);
+
     if(end === true){
       console.log(true);
       mixIngredients();
+    }
+    if(aboutUs === true){
+      displayAboutUs();
     }
   }).fail(function(error){
      console.log("error");
@@ -301,15 +307,21 @@ function mixBtnClicked(){
 };
 
 
-function giveInfromation(){
+function giveInfromation(array, seccion){
   var line1 = "";
   var line2 = "";
-  for(var i=0; i<dataIngredients.length; i++){
-    line1 = line1 + dataIngredients[i][0].vitamin + ", ";
-    line2 = line2 + dataIngredients[i][0].mineral + ", ";
+  for(var i=0; i<array.length; i++){
+    line1 = line1 + array[i][0].vitamin + ", ";
+    line2 = line2 + array[i][0].mineral + ", ";
   }
-  $(".vitamin").text(line1);
-  $(".mineral").text(line2);
+  if(seccion === 1){
+    $(".vitamin").text(line1);
+    $(".mineral").text(line2);
+  }else {
+    $(".vitamin-about").text(line1);
+    $(".mineral-about").text(line2);
+  }
+
   // if(mobile === true){
   //     $("body, html, document").scrollTop( $("#glass-mobile").offset().top );
   //
@@ -370,7 +382,7 @@ function mixIngredients(){
       }, 800);
     }
 
-    giveInfromation();
+    giveInfromation(dataIngredients, 1);
 
   }, 7200)
 };
@@ -441,4 +453,34 @@ closeMixBtn.on("click", function(){
   })
 });
 
+//give fruits in seccion about us event on click
+$(".about-us").find(".item").on("click",function(){
+  if(aboutUs === false){
+    var item = $(this);
+    aboutUs = true;
+    var name = "";
+    var id = "";
+    var end = false;
+
+    if(item.hasClass("fruit")){
+      id = "fruits";
+      name = item.data("fruit");
+    } else {
+      id = "bases";
+      name = item.data("base");
+    }
+      getIngredientsData(dataAboutUs, id, name, end, aboutUs);
+  }
+});
+
+  function displayAboutUs(){
+    var name = dataAboutUs[0][0].name;
+    var text = "";
+    if(name === "apple" || name === "orange"){
+        $(".fruit-name").text("an " + name);
+    }else{
+        $(".fruit-name").text("a " + name);
+    }
+    giveInfromation(dataAboutUs, 2);
+  };
 });

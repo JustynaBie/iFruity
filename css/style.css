@@ -307,7 +307,7 @@ nav a {
   display: block;
   padding: 1.5rem 1.5rem 1.5rem 0;
   background-color: white;
-  z-index: 10;
+  z-index: 20;
   position: absolute;
   color: #741c32;
 }
@@ -869,7 +869,7 @@ nav a {
   position: relative;
 }
 
-.item:hover {
+.mix .item:hover {
   transform: scale(1.2, 1.2);
 }
 
@@ -898,6 +898,7 @@ nav a {
 
 .container-glass {
   width: 100%;
+  border: 1px solid green;
 }
 
 .container-glass-photo {
@@ -1239,7 +1240,63 @@ nav a {
 .about-us {
   width: 100%;
   height: 100vh;
-  background-color: #75b7a6;
+  padding-top: 11rem;
+  padding-bottom: 2rem;
+}
+
+.about-us .main-width {
+  border: 1px solid red;
+}
+
+.container-all-items {
+  width: 100%;
+  height: 45rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.container-all-items .item {
+  width: 10rem;
+  height: 10rem;
+  font-size: 1.5rem;
+  display: block;
+  position: relative;
+}
+
+.container-all-items .item:hover {
+  animation: moveAround 200ms 1 ease normal;
+}
+
+@keyframes moveAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.information-aboutUs {
+  width: 26rem;
+  padding: 0 1rem 1rem 1rem;
+  background-color: rgba(233, 56, 100, 0.9);
+  color: #E7E7E7;
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  z-index: 20;
+}
+
+.information-aboutUs h1 {
+  text-align: center;
+}
+
+.information-aboutUs span {
+  font-size: 1.9rem;
 }
 
 @media (min-width: 600px) {
@@ -1333,5 +1390,29 @@ nav a {
 @media screen and (max-width: 601px) and (max-width: 950px) {
   .container-glass {
     width: 55%;
+  }
+}
+
+@media (max-height: 914px) {
+  .mix {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-us {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .container-all-items {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 335px) {
+  .container-all-items .item {
+    width: 7rem;
+    height: 7rem;
+    font-size: 1.2rem;
   }
 }
