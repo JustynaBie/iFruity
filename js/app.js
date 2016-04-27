@@ -31,42 +31,6 @@ $(function(){
 
 
 
-  function matchHeightWidth(){
-    // var maxW = window.matchMedia("(max-width: 600px") &&  window.matchMedia("(min-height: 640px)").matches;
-
-    var isOk = false;
-    var increment = 0;
-    var mqls = [ // list of window.matchMedia() queries
-      window.matchMedia("(max-width: 600px)"),
-      window.matchMedia("(min-height: 640px)")
-    ];
-
-    for (var i=0; i< mqls.length; i++){ // loop through queries
-      WidthHeightChange(mqls[i]) // call handler function explicitly at run time
-        mqls[i].addListener(WidthHeightChange) // call handler function whenever the media query is triggered
-    }
-
-    function WidthHeightChange(maxW){
-      if(maxW.matches){
-        isOk = true;
-        increment++;
-        console.log("in");
-      // var wHeight = $(window).height();
-      // console.log(wHeight);
-      } else{
-        isOk = false;
-        increment++;
-        console.log("out")
-      }
-
-      //Tutaj sprawdzam czy oba pasują i w tym ifie piszesz style jesli pasują oba :)
-      if( increment==2 && isOk === true) {
-        console.log('pasują oba')
-      }
-    }
-  }
-matchHeightWidth();
-
   // function to change position from which the straw and information-mix mix at
   // the bggining and second function will be moved depending on resize
   function setMixInformationPosition(){
@@ -125,10 +89,14 @@ matchHeightWidth();
      var menu = $("nav");
      if(maxWidth.matches){
        $("#hamburger").css("display", "block");
+      $("#hamburger").css("position", "fixed");
           menu .css("display", "none");
+          menu.css("position", "fixed");
      }else{
        $("#hamburger").css("display", "none");
+       $("#hamburger").css("position", "absolute");
        menu .css("display", "block");
+       menu.css("position", "");
       if(menu .hasClass("show-menu")){
          menu .removeClass("show-menu");
          $("nav").find("li").removeClass("show-li");
@@ -151,7 +119,7 @@ checkSize();
 
 
 
-  //function to clear position, and remove class from item when it is adden to the new site in DOM
+  //function to remove position fixed, class from item when it is adden to the new site in DOM
   function clearItem(item){
     item.css("position", "");
     item.css("top", "");
@@ -160,12 +128,14 @@ checkSize();
   };
 
 function moveIngredients(item){
+  //takes all variables
+  var containerFruits = $(".container-fruits-items"); //container where fruits are at the beginning
+  var containerBase = $(".container-base-items"); //container where bases are at the beginning
+  var containerMix = $(".container-glass-items"); //container belowe the glass  where fruits and a base are collected to be mixed
 
-  var containerFruits = $(".container-fruits-items");
-  var containerBase = $(".container-base-items");
-  var containerMix = $(".container-glass-items");
-
+  //variables with offset left and top of above variables
   var containerMixTop = containerMix.offset().top;
+  console.log(containerMixTop);
   var containerMixLeft = containerMix.offset().left;
 
   var containerFruitsLeft = containerFruits.offset().left;
@@ -173,37 +143,41 @@ function moveIngredients(item){
   var containerBaseLeft = containerBase.offset().left;
   var containerBaseTop = containerBase.offset().top;
 
+  //vairables to store offsets of the clicked fruits or base
   var itemTop = item.offset().top;
   var itemLeft = item.offset().left;
-  var itemWidth = item.css("width");
-  console.log(itemWidth);
+  var itemWidth = item.css("width"); //width of fruit or base
 
-  item.css("top", itemTop + "px");
-  item.css("left", itemLeft + "px");
-  item.css("position", "fixed");
-  item.css("z-index", "10");
-  item.addClass("fruit-around");
 
+  item.css("top", itemTop + "px"); //the position of offset().top is put as a position top of element
+  item.css("left", itemLeft + "px"); //the position of offset().left is put as a position left of element
+  item.css("position", "fixed"); // give element position fixed to enable to moving it
+  item.css("z-index", "10"); // z-index to make element visible where it is moving
+  item.addClass("fruit-around"); //animation with rotation
+
+  //if check where the clicked element is located, if is located in fruit or base container it moves it to container where  fruits
+  //and a base are collected to be mixed
   if(item.parent().hasClass("container-fruits-items") || item.parent().hasClass("container-base-items")){
     item.animate({
         left:  containerMixLeft + "px",
-        top: containerMixTop  + "px",
+        top: containerMixTop + "px",
     }, 800, function(){
+      //element is remove and put in the DOM in the new site in the container where  fruits and a base are collected to be mixed
       var newSite = item.detach();
       containerMix.prepend(newSite);
-      // newSite.css("margin-left", "0.5rem");
-      // newSite.css("margin-right", "0.5rem");
       clearItem(newSite);
-
     });
-  }else if(item.hasClass("fruit")){
+  }
+  /// else if check if the element which is in the mix container are fruits
+  //if so it is moved back to the container where fruits where at the beggining
+  //the second if check how many fruits in the container to calculate where exactly move the fruit
+  else if(item.hasClass("fruit")){ 
     if($(".container-fruits-items").find(".item").length === 7){
       containerFruitsLeft += parseInt(itemWidth);
-      console.log("jestem 7")
     }else if($(".container-fruits-items").find(".item").length === 8){
         containerFruitsLeft += 2*(parseInt(itemWidth));
-        console.log("jestm 8");
     }
+    //moving back animation to the proper site
     item.animate({
       left: containerFruitsLeft + "px",
       top: containerFruitsTop + 2*(parseInt(itemWidth)) + "px",
@@ -213,6 +187,7 @@ function moveIngredients(item){
       clearItem(newSite);
     });
   }else{
+    //moving back aniation for bases
     item.animate({
       left: containerBaseLeft + 2*(parseInt(itemWidth)) + "px",
       top: containerBaseTop  + "px",
@@ -225,22 +200,30 @@ function moveIngredients(item){
 
 };
 
+//add event to fruits which are stored in the beggining in the container-fruits-items to be choosen yo mix
 fruits.on("click", function(){
+  //if check variable blockBtns, it is true only where coctail is mixing and then
+  //it is not possible to  choose any new fruits items to be mixed
   if(blockBtns === false){
+    //if checks how many fruits are in the container,  variable countFruit count fruits in the beggining container at the beggining is 9
+    // this if eneble only chose 2-3 fruits , so countFruit has to be bigger than 6
     if(countFruit > 6 && ($(this).parent().hasClass("container-fruits-items"))){
       countFruit --;
-      console.log(countFruit);
       moveIngredients($(this));
     }else if($(this).parent().hasClass("container-glass-items")){
       countFruit ++;
-      console.log(countFruit);
       moveIngredients($(this))
     }
   }
 });
 
+//add event to bases which are stored in the beggining in the container-base-items to be choosen yo mix
 base.on("click", function(){
+  //if check variable blockBtns, it is true where coctail is mixing and then
+  //it is not possible to  choose any new base item to be mixed
   if(blockBtns === false){
+    //if checks how many bases are in the container,  variable countBase count bases in the beggining container at the beggining is 3
+    // this if eneble only chose 1 base , so countBase has to be bigger than 2
     if(countBase> 2){
       countBase --;
       moveIngredients($(this));
