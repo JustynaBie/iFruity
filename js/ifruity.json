@@ -1,0 +1,114 @@
+{
+  "fruits": [
+    {
+      "id": 1,
+      "name": "apple",
+      "color": "#feb534",
+      "colorGroup": "yellow",
+      "vitamin": "C, A, B1, B2, PP, B3",
+      "mineral": "Potassium, Phosphorus, Calcium ",
+      "group": "fruits"
+    },
+    {
+      "id": 2,
+      "name": "banana",
+      "color": "#e3ba48",
+      "colorGroup": "yellow",
+      "vitamin": "C, B6",
+      "mineral": "Potassium, Magnesium",
+      "group": "fruits"
+    },
+    {
+      "id": 3,
+      "name": "blackberry",
+      "color": "#1a0257",
+      "colorGroup": "blue",
+      "vitamin": "C, beta-carotene,  Manganese",
+      "mineral": "Potassium, Magnesium",
+      "group": "fruits"
+    },
+    {
+      "id": 4,
+      "name": "cherry",
+      "color": "#850017",
+      "colorGroup": "red",
+      "vitamin": "C, B8",
+      "mineral": "Iron",
+      "group": "fruits"
+    },
+    {
+      "id": 5,
+      "name": "peach",
+      "color": "#ff9c00",
+      "colorGroup": "yellow",
+      "vitamin": "K, beta-carotene",
+      "mineral": "Iron",
+      "group": "fruits"
+    },
+    {
+      "id": 6,
+      "name": "pear",
+      "color": "#e8cc79",
+      "colorGroup": "yellow",
+      "vitamin": "K, C, Folic acid",
+      "mineral": "Potasium, Iodine",
+      "group": "fruits"
+    },
+    {
+      "id": 7,
+      "name": "raspberry",
+      "color": "#c42239",
+      "colorGroup": "red",
+      "vitamin": "C, B1, beta-carotene",
+      "mineral": "Potassium, Phosphorus",
+      "group": "fruits"
+    },
+    {
+      "id": 8,
+      "name": "strawberry",
+      "color": "#e71902",
+      "colorGroup": "red",
+      "vitamin": "C, B1, B2",
+      "mineral": "Iron",
+      "group": "fruits"
+    },
+    {
+      "id": 9,
+      "name": "blueberry",
+      "color": "#345278",
+      "colorGroup": "blue",
+      "vitamin": "K, Antioxidants",
+      "mineral": "Potassium, Manganese",
+      "group": "fruits"
+    }
+  ],
+  "bases": [
+    {
+      "id": 1,
+      "name": "orange",
+      "color": "#fce120",
+      "colorGroup": "orange",
+      "vitamin": "C, B, B1, B3, B6, B12, A, P",
+      "mineral": "Magnesium, Iron",
+      "group": "bases"
+    },
+    {
+      "id": 2,
+      "name": "lemon",
+      "color": "#e4de64",
+      "colorGroup": "orange",
+      "vitamin": "C, B1, B6, B9",
+      "mineral": "Photasium, Calcium",
+      "group": "bases"
+    },
+    {
+      "id": 3,
+      "name": "yoghurt",
+      "color": "white",
+      "colorGroup": "white",
+      "vitamin": "A, B",
+      "mineral": "Protein, Calcium",
+      "group": "bases"
+    }
+  ]
+}
