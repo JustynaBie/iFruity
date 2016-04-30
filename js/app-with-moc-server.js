@@ -246,11 +246,10 @@ $(function(){
   };
 
 //function which used ajax to send json to obtain datas about from database
-  function getIngredientsData(array, type, id, end, aboutUs){
-    console.log(type + id);
-    var urlServer = "http://localhost/ifruity/php/js.php";
+  function getIngredientsData(array, id, name, end, aboutUs){
+    var urlServer = "http://localhost:3000/";
     $.ajax({
-      url: urlServer + "?id=" + id + '&type='+ type,
+      url: urlServer + id + "?name=" + name,
       type: "GET",
       dataType: "json"
     }).done(function(response){
