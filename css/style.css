@@ -307,7 +307,7 @@ nav a {
   display: block;
   padding: 1.5rem 1.5rem 1.5rem 0;
   background-color: white;
-  z-index: 20;
+  z-index: 50;
   position: absolute;
   color: #741c32;
 }
@@ -328,7 +328,7 @@ nav a {
   display: none;
   outline: none;
   position: absolute;
-  z-index: 15;
+  z-index: 25;
 }
 
 #hamburger:before {
@@ -822,6 +822,220 @@ nav a {
   transform: rotate(90deg);
 }
 
+.hair-behind {
+  width: 4.8em;
+  height: 5.0em;
+  background-color: #733f24;
+  border-radius: 50% 50% 30% 30%;
+  position: absolute;
+  left: 0.8em;
+}
+
+.face {
+  width: 3.3em;
+  height: 4.1em;
+  background-color: #ffddbe;
+  border-radius: 50%;
+  position: absolute;
+  left: 1.5em;
+  top: 0.6em;
+  z-index: 2;
+}
+
+.hair-fringe {
+  width: 3em;
+  height: 1.1em;
+  background-color: #733f24;
+  border-radius: 50% 10% 50%  50%;
+  position: absolute;
+  z-index: 3;
+  top: 0.5em;
+  left: 1.7em;
+  transform: rotate(15deg);
+}
+
+.hair-fringe-left {
+  width: 1.5em;
+  height: 0.5em;
+  background-color: #733f24;
+  border-radius: 50% 10% 20%  50%;
+  position: absolute;
+  z-index: 3;
+  top: 1.3em;
+  left: 0.8em;
+  transform: rotate(-45deg);
+}
+
+.eyebrow {
+  width: 0.8em;
+  height: 0.08em;
+  background-color: #733f24;
+  position: absolute;
+  z-index: 3;
+}
+
+.eyebrow-left {
+  top: 2em;
+  left: 2em;
+}
+
+.eyebrow-right {
+  top: 2em;
+  left: 3.7em;
+}
+
+.eye {
+  width: 0.8em;
+  height: 0.4em;
+  border-radius: 0 0 50% 50%;
+  background-color: white;
+  border-top: 0.05em solid #733f24;
+  position: absolute;
+  z-index: 3;
+}
+
+.eye-left {
+  top: 2.3em;
+  left: 2em;
+  border-left: 0.05em solid #733f24;
+}
+
+.eye-right {
+  top: 2.3em;
+  left: 3.7em;
+  border-right: 0.05em solid #733f24;
+}
+
+.eye-inside {
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background-color: #4b642c;
+  position: absolute;
+  z-index: 5;
+}
+
+.eye-inside-left {
+  top: 2.3em;
+  left: 2.2em;
+}
+
+.eye-inside-right {
+  top: 2.3em;
+  left: 3.9em;
+}
+
+.nose {
+  width: 0.3em;
+  height: 0.9em;
+  border-left: 0.1em solid #fcb271;
+  border-bottom: 0.1em solid #fcb271;
+  border-radius: 10%;
+  transform: skewX(-11deg);
+  position: absolute;
+  z-index: 5;
+  top: 2.5em;
+  left: 3em;
+}
+
+.mouth {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  box-shadow: -0.1em 0.1em 0 #f6767d;
+  position: absolute;
+  top: 3.5em;
+  left: 2.9em;
+  z-index: 5;
+  transform: rotate(-45deg);
+}
+
+.ear {
+  width: 0.3em;
+  height: 0.7em;
+  position: absolute;
+  z-index: 3;
+  background-color: #ffddbe;
+  border-color: #CCB198;
+}
+
+.ear-left {
+  top: 2.4em;
+  left: 1.3em;
+  border-radius: 50% 10% 10% 50%;
+}
+
+.ear-right {
+  top: 2.4em;
+  left: 4.7em;
+  border-radius: 10% 50% 50% 10%;
+}
+
+.earing {
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 50%;
+  background-color: #38e8bd;
+  position: absolute;
+  z-index: 5;
+}
+
+.earing-left {
+  top: 3em;
+  left: 1.4em;
+}
+
+.earing-right {
+  top: 3em;
+  left: 4.7em;
+}
+
+.neck {
+  width: 1em;
+  height: 0.8em;
+  background-color: #ffddbe;
+  position: absolute;
+  top: 4.6em;
+  left: 2.7em;
+  z-index: 1;
+}
+
+.shoulders {
+  width: 5.5em;
+  height: 1.3em;
+  background-color: #2aae8d;
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  left: 0.5em;
+  top: 5.4em;
+  z-index: 2;
+}
+
+.cleavage {
+  width: 2.3em;
+  height: 0.5em;
+  border-radius: 10% 10% 50% 50%;
+  background-color: #ffddbe;
+  position: absolute;
+  top: 5.4em;
+  left: 2.1em;
+  z-index: 3;
+}
+
+.quotation {
+  width: 100%;
+  height: 16rem;
+  padding: 2rem 0 2rem 0;
+  background-color: #f187a2;
+}
+
+.quotation h2 {
+  line-height: 6rem;
+  font-style: italic;
+  text-align: center;
+  color: #E7E7E7;
+}
+
 .main {
   overflow: hidden;
 }
@@ -830,7 +1044,6 @@ nav a {
   height: 100vh;
   width: 100%;
   padding-top: 12rem;
-  border: 1px solid red;
 }
 
 .mix .main-width {
@@ -880,10 +1093,6 @@ nav a {
   color: black;
 }
 
-.choosen {
-  display: none;
-}
-
 #move-glass-btn {
   display: none;
   width: 2rem;
@@ -898,7 +1107,6 @@ nav a {
 
 .container-glass {
   width: 100%;
-  border: 1px solid green;
 }
 
 .container-glass-photo {
@@ -1004,13 +1212,13 @@ nav a {
   animation: mixBigGlass 4000ms 3200ms 1  ease normal forwards;
 }
 
-.wave-moving {
-  width: 9rem;
-  height: 1rem;
-  position: absolute;
-  top: -0.4rem;
-  display: block;
-  animation: wave 500ms infinite  alternate;
+@keyframes fill {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 4rem;
+  }
 }
 
 @keyframes mixBigGlass {
@@ -1022,6 +1230,15 @@ nav a {
   }
 }
 
+.wave-moving {
+  width: 9rem;
+  height: 1rem;
+  position: absolute;
+  top: -0.4rem;
+  display: block;
+  animation: wave 500ms infinite  alternate;
+}
+
 @keyframes wave {
   from {
     transform: skew(0, -5deg);
@@ -1031,24 +1248,11 @@ nav a {
   }
 }
 
-.rotate {
-  transform: rotateZ(15deg);
-}
-
 .shake {
   -ms-animation: shake 10ms 400 ease normal;
   -webkit-animation: shake 2ms 2000 ease normal;
   -moz-animation: shake 2ms 2000 ease normal;
   animation-delay: 3200ms;
-}
-
-@keyframes fill {
-  0% {
-    height: 0;
-  }
-  100% {
-    height: 4rem;
-  }
 }
 
 @keyframes shake {
@@ -1120,6 +1324,10 @@ nav a {
   }
 }
 
+.fruit-around {
+  animation: around 800ms infinite linear normal;
+}
+
 @keyframes around {
   0% {
     transform: rotate(0deg);
@@ -1127,10 +1335,6 @@ nav a {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.fruit-around {
-  animation: around 800ms infinite linear normal;
 }
 
 .mixer {
@@ -1155,7 +1359,9 @@ nav a {
   background-color: white;
   line-height: 2rem;
   display: block;
+  border: none;
   vertical-align: top;
+  outline: none;
 }
 
 .mix-btn:hover {
@@ -1193,15 +1399,14 @@ nav a {
   margin-bottom: 1rem;
 }
 
-.information-mix-move {
-  animation: moveInformationMix 800ms 1 linear normal;
-}
-
 .close-info-mix {
   font-size: 1.6rem;
   position: absolute;
   top: -0.3rem;
   left: 23.5rem;
+  border: none;
+  color: #E7E7E7;
+  background-color: transparent;
 }
 
 .close-info-mix:hover {
@@ -1244,10 +1449,6 @@ nav a {
   padding-bottom: 2rem;
 }
 
-.about-us .main-width {
-  border: 1px solid red;
-}
-
 .container-all-items {
   width: 100%;
   height: 45rem;
@@ -1268,35 +1469,50 @@ nav a {
 }
 
 .container-all-items .item:hover {
-  animation: moveAround 200ms 1 ease normal;
-}
-
-@keyframes moveAround {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  animation: around 200ms 1 ease normal;
 }
 
 .information-aboutUs {
-  width: 26rem;
+  width: 100%;
+  height: 100%;
   padding: 0 1rem 1rem 1rem;
   background-color: rgba(233, 56, 100, 0.9);
   color: #E7E7E7;
   position: absolute;
-  top: 35%;
-  left: 20%;
+  top: 0;
+  left: 0;
   z-index: 20;
+  text-align: center;
+  display: none;
 }
 
 .information-aboutUs h1 {
+  padding-top: 3rem;
   text-align: center;
 }
 
+.information-aboutUs h2 {
+  padding-top: 2rem;
+}
+
 .information-aboutUs span {
-  font-size: 1.9rem;
+  font-size: 2.4rem;
+}
+
+.information-aboutUs p {
+  padding-top: 1rem;
+}
+
+.information-aboutUs .close-info-aboutUs {
+  text-align: right;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  color: #E7E7E7;
+}
+
+.information-aboutUs .close-info-aboutUs:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {
@@ -1335,7 +1551,6 @@ nav a {
   .mix .main-width .container-fruits {
     width: 100%;
     height: 85vh;
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -1378,6 +1593,18 @@ nav a {
   }
 }
 
+@media (max-height: 630px) and (min-height: 560px) and (max-width: 600px) and (min-width: 404px) {
+  .mix .main-width .container-fruits .container-fruits-items {
+    width: 32rem;
+    height: 15rem;
+  }
+  .container-all-items .item {
+    width: 6rem;
+    height: 6rem;
+    font-size: 1.2rem;
+  }
+}
+
 @media (min-width: 601px) and (max-width: 1200px) {
   header {
     padding: 0 1rem 0 1rem;
@@ -1407,12 +1634,36 @@ nav a {
   .container-all-items {
     height: 100vh;
   }
+  .container-all-items .item {
+    width: 8rem;
+    height: 8rem;
+    font-size: 1.3rem;
+  }
+  .container-all-items h1 {
+    text-align: right;
+  }
+  .container-all-items .i-am {
+    text-align: right;
+  }
 }
 
-@media (max-width: 335px) {
-  .container-all-items .item {
-    width: 7rem;
-    height: 7rem;
-    font-size: 1.2rem;
+@media (max-width: 700px) and (max-height: 961px) {
+  .information-aboutUs h1 {
+    font-size: 3rem;
+  }
+  .information-aboutUs h2 {
+    font-size: 2.2rem;
+  }
+  .information-aboutUs span {
+    font-size: 1.7rem;
+  }
+  .information-aboutUs p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 810px) {
+  .quotation h2 {
+    line-height: 4rem;
   }
 }
