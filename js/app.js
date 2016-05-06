@@ -279,7 +279,7 @@ $(function(){
         displayAboutUs();
       }
     }).fail(function(error){
-       console.log("error");
+       console.log(error);
     })
   };
 
