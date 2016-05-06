@@ -1,0 +1,114 @@
+{
+  "fruits": [
+    {
+      "id": 1,
+      "name": "apple",
+      "color": "#feb534",
+      "colorGroup": "yellow",
+      "vitamin": ["C", "A", "B1", "B2","B3", "B5", "B6", "B9", "Retinol", "PP", "E", "K", "beta-carotene", "lutein zeaxanthin"],
+      "mineral": ["Potassium", "Phosphorus", "Calcium", "Iron", "Magnesium", "Zinc", "Manganese",  "Sodium"] ,
+      "group": "fruits"
+    },
+    {
+      "id": 2,
+      "name": "banana",
+      "color": "#e3ba48",
+      "colorGroup": "yellow",
+      "vitamin": ["A","C", "B1", "B2", "B3", "B5", "B6", "B9", "Choline", "beta-carotene", "lutein zeaxanthin"],
+      "mineral": ["Potassium", "Phosphorus", "Iron", "Magnesium", "Zinc", "Manganese",  "Sodium"],
+      "group": "fruits"
+    },
+    {
+      "id": 3,
+      "name": "blackberry",
+      "color": "#1a0257",
+      "colorGroup": "blue",
+      "vitamin":["C", "A", "B1", "B2","B3", "B6", "B9", "E", "K"],
+      "mineral": ["Calcium", "Potassium", "Iron", "Phosphorus", "Magnesium", "Zinc",  "Sodium"],
+      "group": "fruits"
+    },
+    {
+      "id": 4,
+      "name": "cherry",
+      "color": "#850017",
+      "colorGroup": "red",
+      "vitamin": ["C", "A", "B1", "B2","B3", "B5", "B6", "B9", "K", "Choline", "beta-carotene", "lutein zeaxanthin"],
+      "mineral": ["Calcium", "Potassium", "Iron", "Phosphorus", "Magnesium", "Zinc",  "Sodium"],
+      "group": "fruits"
+    },
+    {
+      "id": 5,
+      "name": "peach",
+      "color": "#ff9c00",
+      "colorGroup": "yellow",
+      "vitamin": ["C", "E", "A", "B1", "B2","B3", "B5", "B6", "B9", "K", "Choline", "beta-carotene"],
+      "mineral": ["Calcium", "Potassium", "Iron", "Phosphorus", "Magnesium", "Zinc",  "Manganese"],
+      "group": "fruits"
+    },
+    {
+      "id": 6,
+      "name": "pear",
+      "color": "#e8cc79",
+      "colorGroup": "yellow",
+      "vitamin": ["C", "E", "B1", "B2","B3", "B5", "B6", "B9", "K", "Choline", "beta-carotene"],
+      "mineral":  ["Calcium", "Potassium", "Iron", "Phosphorus", "Magnesium", "Zinc", "Sodium", "Manganese"],
+      "group": "fruits"
+    },
+    {
+      "id": 7,
+      "name": "raspberry",
+      "color": "#c42239",
+      "colorGroup": "red",
+      "vitamin": ["C", "E", "B1", "B2","B3", "B5", "B6", "B9", "K", "Choline"],
+      "mineral": ["Calcium", "Iron", "Magnesium", "Manganese", "Potassium",  "Phosphorus",  "Zinc"],
+      "group": "fruits"
+    },
+    {
+      "id": 8,
+      "name": "strawberry",
+      "color": "#e71902",
+      "colorGroup": "red",
+      "vitamin":  ["C", "E", "B1", "B2","B3", "B5", "B6", "B9", "K", "Choline"],
+      "mineral": ["Calcium", "Iron", "Magnesium", "Manganese", "Potassium",  "Phosphorus",  "Zinc"],
+      "group": "fruits"
+    },
+    {
+      "id": 9,
+      "name": "blueberry",
+      "color": "#345278",
+      "colorGroup": "blue",
+      "vitamin": ["A", "C", "E", "B1", "B2","B3", "B5", "B6", "B9", "K", "beta-carotene", "lutein zeaxanthin"],
+      "mineral": ["Calcium", "Iron", "Magnesium", "Manganese", "Potassium",  "Phosphorus",  "Zinc"],
+      "group": "fruits"
+    }
+  ],
+  "bases": [
+    {
+      "id": 1,
+      "name": "orange",
+      "color": "#fce120",
+      "colorGroup": "orange",
+      "vitamin": ["A", "C", "E", "B1", "B2","B3", "B5", "B6", "B9", "Choline"],
+      "mineral": ["Calcium", "Iron", "Magnesium", "Manganese", "Potassium",  "Phosphorus",  "Zinc"],
+      "group": "bases"
+    },
+    {
+      "id": 2,
+      "name": "lemon",
+      "color": "#e4de64",
+      "colorGroup": "orange",
+      "vitamin":  ["C", "B1", "B2","B3", "B5", "B6", "B9", "Choline"],
+      "mineral": ["Calcium", "Iron", "Magnesium", "Manganese", "Potassium",  "Phosphorus",  "Zinc"],
+      "group": "bases"
+    },
+    {
+      "id": 3,
+      "name": "yoghurt",
+      "color": "white",
+      "colorGroup": "white",
+      "vitamin": ["A"],
+      "mineral": ["Calcium"],
+      "group": "bases"
+    }
+  ]
+}
