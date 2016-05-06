@@ -108,7 +108,7 @@ $(function(){
   };
   checkSize();
 
- 
+
 
   //when click on hamburger menu is viisble
   hamburger.on("click", function(){
@@ -258,7 +258,7 @@ $(function(){
 
 //function which used ajax to send json to obtain data about ingredients from database
   function getIngredientsData(array, type, id, end){
-    var urlServer = "http://localhost/ifruity/php/js.php";
+    var urlServer = "https://localhost/ifruity/php/js.php";
     $.ajax({
       url: urlServer + "?id=" + id + '&type='+ type,
       type: "GET",
