@@ -267,6 +267,7 @@ $(function(){
       type: "GET",
       dataType: "json"
     }).done(function(response){
+      console.log(response);
       array.push(response);
       console.log(array);
       countEnd = countEnd + end
