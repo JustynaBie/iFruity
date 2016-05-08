@@ -258,12 +258,11 @@ $(function(){
 
 //function which used ajax to send json to obtain data about ingredients from database
   function getIngredientsData(array, type, id, end){
-    //var urlServer = "http://localhost/ifruity/php/js.php";
-    // var urlServer = "https://justynabie.github.io/iFruity/php/js.php"
-        var urlServer = "https://justynabie.github.io/iFruity/js/ifruity.json"
+    // var urlServer = "http://localhost/iFruity/php/js.php";
+     var urlServer = "http://www.pixelstar.pl/ifruty/js.php"
     $.ajax({
-      // url: urlServer + "?id=" + id + '&type='+ type,
-      url: urlServer,
+      url: urlServer + "?id=" + id + '&type='+ type,
+      // url: urlServer,
       type: "GET",
       dataType: "json"
     }).done(function(response){

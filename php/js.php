@@ -1,5 +1,5 @@
 <?PHP
-  //header('Access-Control-Allow-Origin: *');
+  header('Access-Control-Allow-Origin: *');
   $file = file_get_contents(__DIR__.'/../js/ifruity.json');
   $fruits = json_decode($file);
   // var_dump($fruits);
