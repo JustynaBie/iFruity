@@ -110,18 +110,33 @@ $(function(){
 
 
 
-  //when click on hamburger menu is viisble
+  //when click on hamburger menu is visible
   hamburger.on("click", function(){
     var menu = $("nav");
     menu.toggleClass("show-menu");
     menu.find("li").toggleClass("show-li");
     if(menu.hasClass("show-menu")){
-        menu.toggle(300);
+        menu.toggle();
     }else{
       menu.toggle();
     }
   });
-
+  //
+  // hamburger.on("click", function(){
+  //   var menu = $("nav");
+  //
+  //   if(menu.hasClass("show-menu")){
+  //     menu.removeClass("show-menu");
+  //     menu.find("li").removeClass("show-li");
+  //
+  //   }else{
+  //     console.log("jestem");
+  //     menu.addClass("show-menu");
+  //     menu.find("li").addClass("show-li");
+  //   }
+  //
+  //
+  // });
 
 
   //function to remove position fixed, class from item when it is adden to the new site in DOM
@@ -258,8 +273,8 @@ $(function(){
 
 //function which used ajax to send json to obtain data about ingredients from database
   function getIngredientsData(array, type, id, end){
-    // var urlServer = "http://localhost/iFruity/php/js.php";
-     var urlServer = "http://www.pixelstar.pl/ifruity/js.php"
+    var urlServer = "http://localhost/iFruity/php/js.php";
+    //  var urlServer = "http://www.pixelstar.pl/ifruity/js.php"
     $.ajax({
       url: urlServer + "?id=" + id + '&type='+ type,
       type: "GET",
