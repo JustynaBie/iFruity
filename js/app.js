@@ -108,21 +108,19 @@ $(function(){
   };
   checkSize();
 
- 
 
-  //when click on hamburger menu is viisble
+
+  //when click on hamburger menu is visible
   hamburger.on("click", function(){
     var menu = $("nav");
     menu.toggleClass("show-menu");
     menu.find("li").toggleClass("show-li");
     if(menu.hasClass("show-menu")){
-        menu.toggle(300);
+        menu.toggle();
     }else{
       menu.toggle();
     }
   });
-
-
 
   //function to remove position fixed, class from item when it is adden to the new site in DOM
   function clearItem(item){
@@ -258,14 +256,14 @@ $(function(){
 
 //function which used ajax to send json to obtain data about ingredients from database
   function getIngredientsData(array, type, id, end){
-    var urlServer = "http://localhost/ifruity/php/js.php";
+    // var urlServer = "http://localhost/iFruity/php/js.php";
+    var urlServer = "http://justbielecka.com/js.php"
     $.ajax({
       url: urlServer + "?id=" + id + '&type='+ type,
       type: "GET",
       dataType: "json"
     }).done(function(response){
       array.push(response);
-      console.log(array);
       countEnd = countEnd + end
       //when the last ingredient came the mixIngredients function starts
       if(countEnd === 4 || countEnd === 15 ){
@@ -278,7 +276,7 @@ $(function(){
         displayAboutUs();
       }
     }).fail(function(error){
-       console.log("error");
+       console.log(error);//just for debugging purposes for developing version
     })
   };
 
@@ -367,7 +365,6 @@ function mixIngredients(){
   var classArray = ["fill1", "fill2", "fill3", "fill4"] //array with css clases with animation which fill small containers
   var j = 3;
   for(var i=0; i<dataIngredients.length; i++){
-    console.log((dataIngredients[i].group) );
     if((dataIngredients.length === 3) && ((dataIngredients[i].group) === "bases")){
       //if only 3 ingredients are choosen base will be put two times, so the color of base is put to times, one in this if
       (fillGlass[j]).classList.add(classArray[i]);
