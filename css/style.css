@@ -538,9 +538,12 @@ nav a {
   height: .3em;
   background-color: white;
   border-radius: 50%;
-  -moz-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
-  -webkit-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
-  box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white, 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
+  -moz-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white,
+ 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
+  -webkit-box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white,
+ 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
+  box-shadow: 1.7em 0 0 0 white, -1em -2.8em 0 0 white, 2.5em -1.5em 0 0 white,
+ 2em -2.5em 0 0 white, 0.75em -1.5em 0 0 white, -1em -1em 0 0 white, 0.8em -3.2em 0 0 white;
 }
 
 .leaf-up {
