@@ -278,7 +278,7 @@ header {
   width: 100%;
   height: auto;
   background-color: #e93864;
-  color: #cdcdcd;
+  color: #ffffff;
   position: fixed;
   z-index: 20;
 }
@@ -302,7 +302,7 @@ nav li {
 
 nav a {
   font-size: 1.1rem;
-  color: #cdcdcd;
+  color: #ffffff;
 }
 
 .show-menu {
@@ -342,8 +342,8 @@ nav a {
   top: 1rem;
   width: 1em;
   height: 0.15em;
-  background: #cdcdcd;
-  box-shadow: 0 0.25em 0 0 #cdcdcd, 0 0.5em 0 0 #cdcdcd;
+  background: #ffffff;
+  box-shadow: 0 0.25em 0 0 #ffffff, 0 0.5em 0 0 #ffffff;
 }
 
 .show-menu + #hamburger:before {
@@ -353,7 +353,7 @@ nav a {
   border: none;
   top: 0.5rem;
   left: 1rem;
-  color: #cdcdcd;
+  color: #ffffff;
 }
 
 .about-us .fruit:hover,
@@ -1054,7 +1054,7 @@ nav a {
   line-height: 6rem;
   font-style: italic;
   text-align: center;
-  color: #cdcdcd;
+  color: #ffffff;
   font-weight: lighter;
 }
 
@@ -1123,7 +1123,7 @@ nav a {
   height: 2rem;
   margin: 0 auto;
   border-radius: 50%;
-  color: #cdcdcd;
+  color: #ffffff;
   font-size: 1.4rem;
   background-color: #e93864;
   text-align: center;
@@ -1498,7 +1498,7 @@ nav a {
   height: 100%;
   padding: 0 1rem 1rem 1rem;
   background-color: rgba(233, 56, 100, 0.9);
-  color: #cdcdcd;
+  color: #ffffff;
   position: absolute;
   top: 0;
   left: 0;
